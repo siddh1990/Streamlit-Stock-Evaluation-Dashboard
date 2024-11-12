@@ -6,6 +6,6 @@ pandas
 matplotlib
 altair
 yfinance
-sklearn
+scikit-learn
 keras
 plotly.express
