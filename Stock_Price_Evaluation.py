@@ -178,4 +178,4 @@ return_risk_data_2=return_risk_data.copy()
 return_risk_data_2=select(return_risk_data_2)
 #return_risk_data_2.sort_values(by="sharpe_ratio_rank",ascending=False)
 with st.container():
-   st.dataframe(return_risk_data_2.loc[return_risk_data_2["sharpe_ratio_rank"]>0].sort_values(by="sharpe_ratio_rank",ascending=False),hide_index=True)
+   st.dataframe(return_risk_data_2.loc[return_risk_data_2["sharpe_ratio_rank"]>0].sort_values(by="sharpe_ratio_rank",ascending=False))
