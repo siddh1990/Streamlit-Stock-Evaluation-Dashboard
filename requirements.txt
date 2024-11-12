@@ -5,7 +5,7 @@ numpy
 pandas
 matplotlib
 altair
-yfinance
+yfinance==0.2.37
 scikit-learn
-keras
+keras==2.15
 plotly.express
