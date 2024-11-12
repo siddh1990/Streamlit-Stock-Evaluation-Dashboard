@@ -152,16 +152,20 @@ st_fullname=[]
 a_return=[]
 a_stdev=[]
 for i in GICS_compatriots_tickers:
-  st_name.append(i)
-  x=yf.download(i, start=start_date_str,end=end_date_str)
-  daily_returns=x.iloc[:,0].pct_change()
-  d_ror=daily_returns.mean()
-  a_ror=d_ror*252
-  a_return.append(a_ror)
-  d_std=daily_returns.std()
-  a_std=d_std*np.sqrt(252)
-  a_stdev.append(a_std)
-  st_fullname.append(yf.Ticker(i).info["longName"])
+    try:
+        st_name.append(i)
+        x=yf.download(i, start=start_date_str,end=end_date_str)
+        daily_returns=x.iloc[:,0].pct_change()
+        d_ror=daily_returns.mean()
+        a_ror=d_ror*252
+        a_return.append(a_ror)
+        d_std=daily_returns.std()
+        a_std=d_std*np.sqrt(252)
+        a_stdev.append(a_std)
+        st_fullname.append(yf.Ticker(i).info["longName"])
+    except:
+        continue
+    
 return_risk_data=pd.DataFrame(columns=["stock","Annual_Return","Annual_Volality"])
 # taking risk free_rate from US 13-week treasury bond yield
 risk_free_rate=yf.download("^IRX", start='2020-01-01').iloc[-1,4]/100
