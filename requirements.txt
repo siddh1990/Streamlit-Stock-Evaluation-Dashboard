@@ -7,5 +7,4 @@ matplotlib
 altair
 yfinance==0.2.37
 scikit-learn
-keras==2.15
 plotly.express
