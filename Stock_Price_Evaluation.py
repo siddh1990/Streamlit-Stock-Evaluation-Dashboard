@@ -102,7 +102,8 @@ x_train=np.reshape(x_train, (x_train.shape[0], x_train.shape[1],1))
 
 #Build the LSTM model
 model=tf.keras.models.Sequential()
-model.add(tf.keras.layers.LSTM(50,return_sequences=True, input_shape=(x_train.shape[1],1)))
+model.add(tf.keras.layers.Input(shape=(x_train.shape[1],1)))
+model.add(tf.keras.layers.LSTM(50,return_sequences=True))
 model.add(tf.keras.layers.LSTM(50, return_sequences=False))
 model.add(tf.keras.layers.Dense(25))
 model.add(tf.keras.layers.Dense(1))
